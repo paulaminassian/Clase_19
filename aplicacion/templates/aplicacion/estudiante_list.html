@@ -2,7 +2,7 @@
 
 
 {% block titulo %}
-    <h1 class="mb-5"> Profesores </h1>
+    <h1 class="mb-5"> Estudiantes </h1>
 {% endblock titulo %}
     
 
@@ -10,10 +10,10 @@
 
 <table>
     <tr>
-        <td width= "200"><h2>Profesores</h2></td>
+        <td width= "200"><h2>Estudiantes</h2></td>
         <td>
             <a
-            href="{% url 'prof_form' %}"
+            href="{% url 'estudiante_create' %}"
             class="btn btn-primary btn-sm"
             ><i class= "fa fa-plus fa-lg" title="Crear"> </i>
             </a>
@@ -28,28 +28,25 @@
             <th>Nombre<th>
             <th>Apellido<th>
             <th>Email<th>
-            <th>Profesion<th>
             <th>Acciones<th>
             
         <tr>
     </thead>
     <tbody>
-{% for p in profesores %}
+{% for e in estudiante_list %}
          <tr>
-            <td>{{p.id}}<td>
-            <td>{{p.nombre}}<td>
-            <td>{{p.apellido}}<td>
-            <td>{{p.email}}<td>
-            <td>{{p.profesion}}<td>
+            <td>{{e.nombre}}<td>
+            <td>{{e.apellido}}<td>
+            <td>{{e.email}}<td>
             <td>
               <a
-                href="{% url 'profesorActualizar' p.id %}"
+                href="{% url 'estudiante_update' e.id %}"
                 class="btn btn-primary"
                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                 ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
               </a> 
               <a
-                href="{% url 'profesorBorrar' p.id %}"
+                href="{% url 'estudiante_delete' e.id %}"
                 class="btn btn-danger"
                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                 ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
